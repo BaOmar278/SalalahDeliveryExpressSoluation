@@ -16,8 +16,9 @@ namespace SalalahDeliveryExpress.Models
         public string dropoffLocation { get; set; }
         public DateTime deliveryDate { get; set; }
         public Status status { get; set; }
+        public List<string> items { get; set; }
 
-        public Delivery(Coustomer coustomer, Driver driver, string pickupLocation, string dropoffLocation, DateTime deliveryDate)
+        public Delivery(Coustomer coustomer, Driver driver, string pickupLocation, string dropoffLocation, DateTime deliveryDate, List<string> items)
         {
             this.coustomer = coustomer;
             this.driver = driver;
@@ -25,6 +26,7 @@ namespace SalalahDeliveryExpress.Models
             this.dropoffLocation = dropoffLocation;
             this.deliveryDate = deliveryDate;
             this.status = Status.Pending;
+            this.items = items;
         }
     }
 }

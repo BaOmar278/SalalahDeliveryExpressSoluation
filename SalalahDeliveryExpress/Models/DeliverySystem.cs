@@ -31,6 +31,7 @@ namespace SalalahDeliveryExpress.Models
         public void AddDelivery(Delivery delivery)
         {
             delivs.Add(delivery);
+            
         }
 
         public void ListAllDeliveries()
@@ -39,6 +40,56 @@ namespace SalalahDeliveryExpress.Models
             {
                 coustomer.getDeliveriesInfo();
 
+            }
+        }
+
+        public void ListAllPandingDeliveries()
+        {
+            foreach (var delivery in delivs)
+            {
+                if (delivery.status == Enums.Status.Pending)
+                {
+                    Console.WriteLine($"Coustomer: {delivery.coustomer.fullName}");
+                    Console.WriteLine($"Pickup Location: {delivery.pickupLocation}");
+                    Console.WriteLine($"Dropoff Location: {delivery.dropoffLocation}");
+                    Console.WriteLine($"Delivery Date: {delivery.deliveryDate}");
+                    Console.WriteLine($"Items: {string.Join(", ", delivery.items)}");
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        public void ListAllOntheWayDeliveries()
+        {
+            foreach (var delivery in delivs)
+            {
+                if (delivery.status == Enums.Status.OntheWay)
+                {
+                    Console.WriteLine($"Coustomer: {delivery.coustomer.fullName}");
+                    Console.WriteLine($"Driver: {delivery.driver.fullName}");
+                    Console.WriteLine($"Pickup Location: {delivery.pickupLocation}");
+                    Console.WriteLine($"Dropoff Location: {delivery.dropoffLocation}");
+                    Console.WriteLine($"Delivery Date: {delivery.deliveryDate}");
+                    Console.WriteLine($"Items: {string.Join(", ", delivery.items)}");
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        public void ListAllDeliveredDeliveries()
+        {
+            foreach (var delivery in delivs)
+            {
+                if (delivery.status == Enums.Status.Delivered)
+                {
+                    Console.WriteLine($"Coustomer: {delivery.coustomer.fullName}");
+                    Console.WriteLine($"Driver: {delivery.driver.fullName}");
+                    Console.WriteLine($"Pickup Location: {delivery.pickupLocation}");
+                    Console.WriteLine($"Dropoff Location: {delivery.dropoffLocation}");
+                    Console.WriteLine($"Delivery Date: {delivery.deliveryDate}");
+                    Console.WriteLine($"Items: {string.Join(", ", delivery.items)}");
+                    Console.WriteLine();
+                }
             }
         }
 
